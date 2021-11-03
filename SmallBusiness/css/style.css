@@ -1,0 +1,306 @@
+body
+{
+	margin: 0;
+	padding: 0 0;
+	background: #FFFFFF;
+	/*font-family: -apple-system, BlinkMacSystemFont, 'segoe ui', roboto, oxygen, ubuntu, cantarell, 'fira sans', 'droid sans', 'helvetica neue', Arial, sans-serif;*/
+	font-family: 'segoe ui', roboto, oxygen, ubuntu, cantarell, 'fira sans', 'droid sans', 'helvetica neue', Arial, sans-serif;
+	font-size: 1em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+h1 { color: #25292E; font-size: 1.25em; font-weight: 510; margin: 0.6em 0 0.4em 0; }
+h2 { color: #25292E; font-size: 1.9em; font-weight: 500; letter-spacing: 2px; margin-top: 0; }
+.moreLink { line-height: 1.8em; }
+
+/* Reihen in abwechselnder Färbung */
+.row-white, .row-gray 
+{
+	width: 100%;
+	background: #FFFFFF;
+	padding: 3em 0;
+}
+.row-gray { background: #F3F3F3; }
+
+/* zentriere den Inhalt */
+.content-center
+{
+	display: flex;
+	flex-wrap: wrap;
+	width: 1150px;
+	margin: auto;
+}
+
+/* drei Zeilen in einer Reihe */
+.column3
+{
+	box-sizing: border-box;
+	width: 33.33%;
+	width: calc(100% / 3);
+	padding: 0 1em;
+}
+.img-column
+{
+	max-width: 100%;
+	display: block;
+	margin: auto;
+}
+.column3 a { color: #337AB7; text-decoration: none; }
+.column3 a:hover { text-decoration:underline; }
+.column3 p { color: #626262; line-height: 1.4em; font-size: 1em; margin: 0; }
+
+/* Kugeln mit Text nebendran */
+.grid4
+{
+	box-sizing: border-box;
+	overflow: auto;
+	width: 50%;
+	padding: 0.3em 0em 0.3em 0em;
+}
+.grid4 a { color: #337AB7; text-decoration: none; }
+.grid4 a:hover { text-decoration:underline; }
+.grid4 p { color: #626262; line-height: 1.4em; font-size: 1em; margin: 0; }
+.kugelBild { box-sizing: border-box; width: 30%; float: left; padding: 0.6em 0; padding-right: 1em; }
+.kugelText { width: 70%; float: left; }
+
+/* zwei Zeilen in einer Reihe */
+.column2
+{
+	box-sizing: border-box;
+	width: 50%;
+	padding: 0 1em;
+}
+.column2 a { color: #337AB7; text-decoration: none; }
+.column2 a:hover { text-decoration:underline; }
+.column2 p { color: #626262; line-height: 1.4em; margin: 0; }
+
+/* zwei Zeilen in einer Reihe im Split 30% und 70% */
+.column2Contact
+{
+	box-sizing: border-box;
+	padding: 0 1em;
+}
+.column2Contact:first-child { width: 30%; }
+.column2Contact:nth-child(2) { width: 70%; }
+.column2Contact a { color: #337AB7; text-decoration: none; }
+.column2Contact a:hover { text-decoration:underline; }
+.column2Contact p { color: #626262; line-height: 1.4em; margin: 0; }
+
+/* Footer */
+footer
+{
+	width: 100%;
+	padding: 2em 0;
+	background: #25292E;
+	color: #C3C0C0;
+}
+#footer-final
+{
+	background: #222222;
+	width: 100%;
+	text-align: center;
+	color: white;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+#footer-final a { color: white; text-decoration: none; }
+#footer-final a:hover { text-decoration:underline; }
+
+/* Gallerie für PhotoSwipe 6er-Box und 3er-Box */
+.my-gallery 
+{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.my-gallery figure
+{
+	box-sizing: border-box;
+	width: 33.33%;
+	height: auto;
+	max-width: 200px;
+	max-height: 200px;
+	padding: 3px 3px 0 0;
+	margin: 0;
+}
+.my-gallery img
+{
+	width: 100%;
+	height: 100%;
+}
+
+/* Gallerie für PhotoSwipe Gallerie 6 in einer Reihe */
+.my-gallery-big
+{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.my-gallery-big figure
+{
+	box-sizing: border-box;
+	width: 16.66%;
+	height: auto;
+	max-width: 200px;
+	max-height: 200px;
+	padding: 3px 3px 0 0;
+	margin: 0;
+}
+.my-gallery-big img
+{
+	width: 100%;
+	height: 100%;
+}
+
+/* Preistabelle */
+.tabUeber
+{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+
+	padding-bottom: 0.5em;
+	font-size: 1.3em;
+	font-weight: 500;
+}
+.tabUeber:not(:first-child) { margin-top: 1.2em; }
+.tabPreise { width: 100%; border-spacing: 0; }
+.tabPreise tr { background: #F5F5F5; }
+.tabPreise tr:nth-child(even) { background:#FFFFFF; }
+.tabPreise th
+{
+	text-align: center;
+	font-size: 1.1em;
+	padding: 0.6em 0;
+	font-weight: 500;
+	color: #FFFFFF;
+}
+.tabPreise td 
+{
+	text-align: center;
+	padding: 0.5em 0;
+	color: #424242;
+	font-weight: 300;
+}
+.tabPreise a { color: #337AB7; text-decoration: none; }
+.tabPreise a:hover { text-decoration:underline; }
+.tabLogo { height: 1.2em; }
+.tabPreis td { font-size: 1.1em; font-weight: 600; }
+.tabInfobox
+{
+	text-align:center;
+	padding: 0.5em 0;
+	
+	background:#E4E4E4;	
+	border-top-style:solid;
+	border-top-width:1px;
+}
+
+/* Tipps FAQ */
+.tabFAQ { width: 100%; border-spacing: 0; margin-top: 1.2em; }
+.tabFAQ td 
+{ 
+	padding: 0.7em 0.6em;
+	color: #424242;
+	line-height: 1.5em; 
+	/*font-size: 0.9em; */
+}
+.tabFAQ th 
+{
+	font-weight: 600;
+	font-size: 1em;
+	background: #E4E4E4;
+	text-align: center;
+	padding: 0.8em 0;
+}
+
+/* Überschrift auf FAQ-Seite */
+.headlineFAQ 
+{
+	font-size: 1.5em;
+	color: #25292E;
+}
+
+/* FAQ Dropdown Frage und Antwort */
+.faqDrowdownKategroie
+{
+	color: #bebebf;
+	font-size: 1.15em;
+	font-weight: 600;
+	line-height: 1.8em;
+}
+.faqDropdown
+{
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	margin-top: 4px;
+}
+.faqDropdown .Frage
+{
+	background: white;
+	color: #444;
+	cursor: pointer;
+	padding: 12px 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 1em;
+	transition: 0.4s;
+	margin: 0;
+}
+.faqDropdown .Antwort
+{
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	/*font-size: 0.9em;*/
+	transition: max-height 0.2s ease-out;
+	margin: 0;
+}
+.faqDropdown .Antwort p { margin: 2px 0 15px 0; }
+.faqDrowdownKategroie:hover {  }
+.faqDropdown .Frage:after
+{
+	content: '\002B';
+	color: #777;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+.faqDropdown .active:after { content: '\2212'; }
+
+/* Datenschutz und Impressum */
+.textDatenschutzImpressum
+{
+	display: block;
+}
+.textDatenschutzImpressum a { color: #337AB7; text-decoration: none; }
+.textDatenschutzImpressum a:hover { text-decoration:underline; }
+
+/**/
+@media screen and (max-width: 1150px) 
+{
+	.content-center { padding: 0 20px; width: auto; margin: 0; }
+}
+
+@media screen and (max-width: 700px) 
+{
+	h1 { font-size: 1.1em; font-weight: 500; }
+	h2 { font-size: 1.5em; font-weight: 400; }
+
+	.tabUeber { font-size: 1.0em; }
+	.headlineFAQ { font-size: 1.3em; }
+	.tabPreise { font-size: 0.8em; }
+	/*.tabFAQ th { font-size: 0.9em; }*/
+
+	.content-center { display: block; }
+	.column2, .column3, .column2Contact:first-child, .column2Contact:nth-child(2) 
+	{
+		width: 100%; 
+		padding: 0; 
+		margin-top: 1em; 
+	}
+	.grid4 { width: 100%; padding: 0.2em 1em; }
+	.row-white, .row-gray { padding: 1em 0; }
+}

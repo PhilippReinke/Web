@@ -1,0 +1,83 @@
+
+body
+{
+    background:#F1F1F1;
+    color:#000;
+
+    /* make sure they are 0 in the begining */
+    margin: 0;
+    padding: 0;
+
+    /* globale Schriftart und -größe */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-size:1em;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Text kann nicht markiert werden */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    /* Abstand rechts  */
+    padding-left: 5px;
+
+    /* wichtiger Teil für Navbar */
+    transition: margin-left .5s;
+    margin-left: 250px;
+}
+
+#sidenav 
+{
+    height: 100%;
+    width: 250px;
+
+    /* Leiste ist außerhalb von body */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+
+	background: #222;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+#sidenav a 
+{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#sidenav a:hover
+{
+    color: #f1f1f1;
+}
+
+#closebtn 
+{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+}
+
+#infobar
+{
+    margin-top: 20px;
+    margin-bottom: 1em;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 650px)
+{
+    #sidenav { width: 0px; }
+    body { margin-left: 0px; }
+}

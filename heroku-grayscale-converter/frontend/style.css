@@ -1,0 +1,113 @@
+body
+{
+	font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #333;
+	background: #f3f3f3;
+}
+/* show only when loaded */
+[v-cloak] { display: none; }
+[v-cloak]::before
+{
+	content: " ";
+	display: block;
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	/* source see https://samherbert.net/svg-loaders/ */
+	background-image: url(/svg-loaders/loader.svg);
+	background-size: cover;
+	left: 50%;
+	top: 50%;
+}
+/* upload area */
+.uploadArea
+{
+	display: flex; flex-wrap: wrap;
+	justify-content: center; align-items: center;
+	border: 2px dashed #aaa; border-radius: 10px;
+	min-height: 10em; width: 100%;
+	cursor: pointer;
+	background: white;
+	box-sizing: border-box;
+}
+/* upload info box */
+.uploadInfo 
+{ 
+	width: 100%; margin: 1.2em 0;
+	min-height: 5em;
+	box-sizing: border-box;
+}
+.uploadInfoEle
+{
+	position: relative;
+	display: flex;
+	width: 100%;
+	margin: 1em 0;
+	background: white;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	box-sizing: border-box;
+}
+.uploadInfo .previewImage 
+{ 
+	display: block;
+	width:100px; height:100px;
+	object-fit:cover;
+}
+.uploadInfo .statusImage
+{
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	height: 20px; width: 20px;
+}
+.divDelete
+{
+	font-size: 0.9em;
+	color: white; line-height: 50px;
+	text-align: center; vertical-align: middle;
+	background: #bbb;
+	cursor: pointer;
+	padding: 0 1em;
+	box-sizing: border-box;
+}
+.divDelete:hover { background: tomato; }
+.progressbar
+{
+	background: black;
+	height: 0.5em;
+}
+.progressbar div
+{
+	background: orange;
+	height: 100%; width: 40%;
+}
+/* useful */
+.divButton { padding: 0.2em 1em; background: #bbb; color: white; text-align: center;}
+.divButton:hover { background: tomato; cursor: pointer; }
+.noselect 
+{
+	-webkit-touch-callout: none; 	/* iOS Safari */
+	-webkit-user-select: none; 		/* Safari */
+	-khtml-user-select: none; 		/* Konqueror HTML */
+	-moz-user-select: none; 		/* Old versions of Firefox */
+	-ms-user-select: none; 			/* Internet Explorer/Edge */
+	user-select: none; 				/* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+.dont-break-out 
+{
+	/* These are technically the same, but use both */
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+	/* This is the dangerous one in WebKit, as it breaks things wherever */
+	word-break: break-all;
+	/* Instead use this non-standard one: */
+	word-break: break-word;
+	/* Adds a hyphen where the word breaks, if supported (No Blink) */
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}

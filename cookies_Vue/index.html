@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Cookies</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body
+		{
+			font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		input
+		{
+			width: 100%;
+			font-size: 1rem;
+		}
+		table { width: 100%; border-collapse: collapse; }
+		th, td { text-align: left; padding: 0.2em 0.9em; }
+		tr { margin: 0; }
+		tr:nth-child(odd) { background: #f5f5f5; }
+		.spanButton { cursor: pointer; padding: 0.1em;}
+		.spanButton:hover { color: tomato; }
+		.noselect 
+		{
+			-webkit-touch-callout: none; 	/* iOS Safari */
+			-webkit-user-select: none; 		/* Safari */
+			-khtml-user-select: none; 		/* Konqueror HTML */
+			-moz-user-select: none; 		/* Old versions of Firefox */
+			-ms-user-select: none; 			/* Internet Explorer/Edge */
+			user-select: none; 				/* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+		}
+	</style>
+</head>
+<body>
+	<div id="app" style="width: 35em; margin:0 auto;">
+		<h1 style="text-align: center;">Cookie Beispiel</h1>
+		<p>
+			Aktuelle Cookies:
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Wert</th>
+					<th width="1em"></th>
+				</tr>
+				<tr v-for="cookie in cookies" :key="cookie.idx">
+					<td>{{cookie.name}}</td>
+					<td>{{cookie.value}}</td>
+					<td><span class="spanButton noselect" v-on:click="deleteCookie(cookie.idx)">&#x1F5D1;</span></td>
+				</tr>
+			</table>
+		</p>
+		<button v-on="reloadCookies">Cookies laden</button>
+		<p>Neue Cookies setzen:</p>
+		<p>
+			<input v-model="newCookie.name" v-on:keyup.enter="setCookie" placeholder="Name des Cookies"/>
+			<br><br>
+			<input v-model="newCookie.value" v-on:keyup.enter="setCookie" placeholder="Wert des Cookies"/>
+			<br><br>
+			<input v-model="newCookie.days" v-on:keyup.enter="setCookie" placeholder="Tage der Gültigkeit (Standard 1 Tag)"/>
+		</p>
+		<button v-on:click="setCookie">Cookies setzen</button>
+	</div>
+
+	<!-- Vue -->
+	<script src="https://unpkg.com/vue@3.2.1/dist/vue.global.prod.js"></script>
+	<script>
+		const root = {
+			data()
+			{
+				return {cookies: [], newCookie: {name:"", value:"", days: ""}};
+			},
+			methods:
+			{
+				reloadCookies()
+				{
+					// delete old info
+					this.cookies = [];
+
+					// load cookie string and 
+					let cookiesString  = document.cookie;
+					if(cookiesString == "") { return; }
+
+					// cookie string to list with objects
+					let idx = 0;
+					for(cookie of cookiesString.split("; "))
+					{
+						let temp = cookie.split("=");
+						if(temp.length == 2) { this.cookies.push({idx: idx, name: temp[0], value: temp[1]});}
+						else { this.cookies.push({idx: idx, name: "", value: temp[0]}); }
+						idx++;
+					}
+				},
+				setCookie()
+				{
+					// check input
+					if(this.newCookie.days < 0) { this.newCookie.days = 1; }
+					if(this.newCookie.name == "")
+					{
+						// ToDo: implement user feedback
+						return
+					}
+
+					// expiration
+					let expires = "";
+					if(this.newCookie.days != "")
+					{
+						const d = new Date();
+						d.setTime(d.getTime() + (this.newCookie.days*24*60*60*1000));
+						expires = "expires="+ d.toUTCString() + ";";
+					}
+					
+					// set cookie
+					document.cookie = this.newCookie.name + "=" + this.newCookie.value + ";" + expires + "path=/;SameSite=None; Secure";
+
+					// delete input lines and reload cookies
+					this.newCookie = {name:"", value:"", days:""};
+					this.reloadCookies();
+				},
+				deleteCookie(idx)
+				{
+					document.cookie = this.cookies[idx].name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=None; Secure";
+					this.reloadCookies();
+				},
+			},
+			mounted()
+			{
+				this.reloadCookies();
+			},
+		};
+		const app = Vue.createApp(root).mount("#app");
+	</script>
+</body>
+</html>

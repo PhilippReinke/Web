@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Quiz</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div v-cloak id="app">
+		<!-- highscore -->
+		<transition name="fade">
+			<div id="dark-cover" v-if="bDarkCover" v-on:click="{bDarkCover=false; bHighscore=false;}"></div>
+		</transition>
+		<transition name="fade">
+			<div class="overlay-dark" v-if="bHighscore">
+				<h2>Highscore</h2>
+				<table width="100%">
+					<tr>
+						<th>Name</th>
+						<th>Punkte</th>
+						<th>Datum</th>
+					</tr>
+					<tr v-for="ele in highscoreArray">
+						<td>{{ele.name}}</td>
+						<td>{{ele.points}} / {{ele.max_points}}</td>
+						<td>{{ele.date}}</td>
+					</tr>
+				</table>
+				<div class="buttonHighscore noselect" v-on:click="{bDarkCover=false; bHighscore=false;}">Schließen</div>
+			</div>
+		</transition>
+
+		<!-- navigation bar -->
+		<div class="topic-flex">
+			<div class="topic-left"><span v-if="!bName" class="butSpan noselect"></span></div>
+			<div class="topic-center noselect">{{topics[idxTopic]}}</div>
+			<div class="topic-right"><span class="butSpan noselect" v-on:click="showHighscore()">Highscore</span></div>
+		</div>
+
+		<!-- asking for name -->
+		<div class="askingForName" v-if="bName">
+			<div style="width: 100%; text-align: left; margin-bottom: 0.7rem;">Bitte Namen eingeben:</div>
+			<input v-model="nameOfPlayer" maxlength="10" v-on:keyup.enter="checkName" placeholder="Name"/>
+			<div class="butAskForName noselect" v-on:click="checkName">Weiter</div>
+		</div>
+
+		<!-- quiz part -->
+		<div v-if="bQuiz">
+			<!-- question and points -->
+			<div class="grid-container">
+				<div class="question-points">
+					Frage {{idxQuestion+1}} / {{maxQuestions}}
+				</div>
+				<div class="question-points">
+					Punkte {{points}} / {{maxQuestions}}
+				</div>
+			</div>
+			<!-- question -->
+			<div class="question">
+				{{questionsArray[idxQuestion].question}}
+			</div>
+			<!-- answers -->
+			<div class="grid-container">
+				<div class="answer noselect" v-bind:class="{correct: correctAns==1, false: falseAns==1}" v-on:click="handleNextQuestion(1)">
+					{{questionsArray[idxQuestion].option1}}
+				</div>
+				<div class="answer noselect" v-bind:class="{correct: correctAns==2, false: falseAns==2}" v-on:click="handleNextQuestion(2)">
+					{{questionsArray[idxQuestion].option2}}
+				</div>
+				<div class="answer noselect" v-bind:class="{correct: correctAns==3, false: falseAns==3}" v-on:click="handleNextQuestion(3)">
+					{{questionsArray[idxQuestion].option3}}
+				</div>
+				<div class="answer noselect" v-bind:class="{correct: correctAns==4, false: falseAns==4}" v-on:click="handleNextQuestion(4)">
+					{{questionsArray[idxQuestion].option4}}
+				</div>
+			</div>
+		</div>
+
+		<!-- results -->
+		<div class="askingForName" v-if="bResults">
+			<div style="width: 100%; text-align: left; margin-bottom: 0.7rem;">
+				Toll gemacht {{nameOfPlayer}}! Hier sind deine Resultate aufgeschlüsselt nach Kategorie. Ein Eintrag im Highscore wurde angelegt.
+			</div>
+			<table width="100%">
+				<tr>
+					<td>Miracoulos</td>
+					<td>{{acheviedPoints[0]}} / {{possiblePoints[0]}}</td>
+				</tr>
+				<tr>
+					<td>Baumquiz</td>
+					<td>{{acheviedPoints[1]}} / {{possiblePoints[1]}}</td>
+				</tr>
+				<tr>
+					<td>Kopfrechnen</td>
+					<td>{{acheviedPoints[2]}} / {{possiblePoints[2]}}</td>
+				</tr>
+				<tr>
+					<td><strong>Insgesamt</strong></td>
+					<td><strong>{{acheviedPoints[3]}} / {{possiblePoints[3]}}</strong></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<!-- Vue -->
+	<!--<script src="https://unpkg.com/vue@next"></script> -->
+	<script src="https://unpkg.com/vue@3.2.1/dist/vue.global.prod.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="Miraculous.js"></script><script src="Baum.js"></script><script src="Rechenaufgaben.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

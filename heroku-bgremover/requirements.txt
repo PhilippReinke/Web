@@ -1,0 +1,6 @@
+--extra-index-url https://google-coral.github.io/py-repo/
+tflite_runtime
+Flask
+pillow
+numpy
+gunicorn

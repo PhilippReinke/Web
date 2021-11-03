@@ -1,0 +1,4 @@
+Montag|Dienstag|10:00|12:00
+Dienstag|Mittwoch|15:00|18:00 
+Donnerstag|-|geschlossen
+Freitag|Sonntag|15:00|18:00

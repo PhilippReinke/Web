@@ -1,0 +1,101 @@
+
+/* Boxen */
+.box, .boxBig
+{
+	box-sizing: border-box;
+	width: 50%;
+	float: left;
+	color: black;
+	padding-right: 5px;
+	margin-top: 5px;
+	font-size: 0.9em;
+}
+
+.boxBig{ width: 100%; }
+
+.boxTitel
+{
+	font-size: 1.1em;
+	background: #FCFCFC;
+	padding: 0.5em;
+	border-bottom: #EBEBEB 1px solid;
+	border-left: #DFDFDF 1px solid;
+}
+
+.boxInhalt
+{
+	background: #FFF;
+	padding: 0.5em;
+	border-left: #DFDFDF 1px solid;
+	border-bottom: #DFDFDF 1px solid;
+}
+
+@media screen and (max-width: 750px)
+{
+	.box, .boxBig{ float:none; width:100%; }
+}
+
+
+/* Button */
+.butSubmit
+{
+	font-size: 0.8em;
+	background: none;
+	border: 1px #999 solid;
+	border-radius: 3px;
+	height: 2em;
+	width: 8em;
+}
+
+.butSubmit:hover{ background: #DEDEDE; }
+
+#butRight{ text-align: right; }
+
+
+/* für Dateiupload */
+#fileA, #progress{ width: 100%; font-size: 0.9em; }
+
+
+/* Notizen */
+#notes
+{
+	box-sizing: border-box;
+	width: 100%;
+	height: 15em;
+	resize: none;
+	margin-bottom: 7px;
+
+	/* Schriftart und -größe wie im body */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	font-size: 1em;
+}
+
+#notesTitle
+{
+	box-sizing: border-box;
+	size: 50;
+	resize: none;
+	margin-bottom: 7px;
+	height: 1.7em;
+	white-space: nowrap;
+
+	/* Schriftart und -größe wie im body */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	font-size: 1em;
+}
+
+#selectNote
+{
+	width: 100%; 
+	margin-bottom: 7px;
+
+	/* Schriftart und -größe wie im body */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	font-size: 1em;
+}
+
+@media screen and (max-width: 750px)
+{
+	/* Damit auf dem iPhone nicht gezoomt wird. */
+	#selectNote, #notes, #notesTitle { font-size: 1.11em; }
+}

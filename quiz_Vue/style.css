@@ -1,0 +1,185 @@
+body
+{
+	margin: 0; padding: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: #e7e7e7;
+}
+
+/* show only when loaded */
+[v-cloak] { display: none; }
+[v-cloak]::before
+{
+	content: " ";
+	display: block;
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	/* source see https://samherbert.net/svg-loaders/ */
+	background-image: url(/svg-loaders/loader.svg);
+	background-size: cover;
+	left: 50%;
+	top: 50%;
+}
+
+/* first view asking for name */
+.askingForName
+{
+	max-width: 40rem; 
+	text-align: center;
+	border-radius: 15px;
+	background: white;
+	margin: 1rem auto;
+	padding: 2.5rem 2rem 1rem 2rem;
+	overflow:hidden;
+}
+.askingForName input
+{
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 1rem;
+	padding: 6px;
+	margin-bottom: 1rem;
+}
+.butAskForName
+{
+	float: right;
+	text-align: center;
+	width: 10rem;
+	padding: 0.5rem 2rem;
+	background: #e7e7e7;
+	cursor: pointer;
+}
+
+/* heading */
+.topic-flex
+{ 
+	display: flex;
+	background: white;
+	margin: 0 auto; padding: 1.7rem 2rem;
+	margin-bottom: 3rem;
+}
+.topic-left { flex:1; text-align: left; }
+.topic-center 
+{
+	flex:1;
+	text-align: center; font-size: 1.2rem; font-weight: bold; 
+	text-transform:uppercase; 
+	background: #43c6ac;
+	background: -webkit-linear-gradient(to right, #43c6ac, #e2e8a2); /*#f8ffae);*/
+	background: linear-gradient(to right, #43c6ac, #e2e8a2);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.topic-right { flex:1; text-align: right; }
+.butSpan { cursor: pointer; }
+.butSpan:hover { color: #43c6ac; }
+
+/* main part */
+.question
+{
+	font-size: 1.1rem; font-weight: bold; 
+	text-align: center;
+	border-radius: 15px;
+	background: white;
+	margin: 1rem auto;
+	padding: 4.5rem 0;
+}
+
+.grid-container
+{
+	display: grid;
+	grid-column-gap: 1rem; grid-row-gap: 1rem;
+	grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
+	margin: 0 auto;
+}
+
+.grid-container, .question { max-width: 40rem; }
+
+.answer
+{
+	text-align: center;
+	border-radius: 15px;
+	background: white;
+	padding: 1.2rem 0;
+	cursor: pointer;
+}
+
+.question-points
+{
+	text-align: center;
+	border-radius: 15px;
+	background: white;
+	padding: 0.2rem 0;
+}
+
+.correct { background: #a2f9a4; }
+.false { background: #f9aaa2; }
+
+/* highscore */
+/* see https://stackoverflow.com/questions/31126709/how-to-create-a-dark-semi-transparent-cover-over-entire-page */
+#dark-cover
+{
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background-color: #000;
+	position: fixed;
+	/* RGBa with 0.5 opacity */
+	background: rgba(0, 0, 0, 0.5);
+	/* For IE8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+.overlay-dark
+{
+	background: #43c6ac;
+	background: -webkit-linear-gradient(to right, #43c6ac, #f8ffae);
+	background: linear-gradient(to right, #43c6ac, #f8ffae);
+	position: absolute;
+	padding: 1rem;
+	z-index: 15;
+	width: 60%;
+	left: 20%;
+	top: 2rem;
+	box-sizing: border-box;
+}
+th, td { text-align: left; }
+.buttonHighscore
+{
+	float: right;
+	text-align: center;
+	width: 10rem;
+	padding: 0.5rem 2rem;
+	background: white;
+	cursor: pointer;
+	margin-top: 2rem;
+}
+
+/* useful */
+.noselect 
+{
+	-webkit-touch-callout: none; 	/* iOS Safari */
+	-webkit-user-select: none; 		/* Safari */
+	-khtml-user-select: none; 		/* Konqueror HTML */
+	-moz-user-select: none; 		/* Old versions of Firefox */
+	-ms-user-select: none; 			/* Internet Explorer/Edge */
+	user-select: none; 				/* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* 	animations for more see https://v3.vuejs.org/guide/transitions-enterleave.html */
+.fade-enter-active, .fade-leave-active { transition: opacity 0.5s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+
+/**/
+@media only screen and (max-width:480px)
+{
+	.buttonHighscore { float: none; width: auto; }
+	.grid-container { grid-template-columns: 100%; }
+	.topic-flex { display:block; }
+	.topic-left, .topic-right, .topic-center { text-align: center; }
+	.topic-right { margin-top: 1rem; }
+	.overlay-dark { width: 90%; left: 5%; }
+	.butAskForName { width: 100%; box-sizing: border-box; }
+	body { padding-bottom: 1rem; }
+}

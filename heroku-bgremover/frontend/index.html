@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Background Remover</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div v-cloak id="app" style="max-width: 41.2em; margin:0 auto;">
+		<!-- head -->
+		<h1 style="text-align: center;">Background Remover</h1>
+		<p>Diese Webseite stellt dein Foto frei.</p>
+		
+		<!-- dropzone -->
+		<div class="uploadArea" id="file-drag-drop" ref="uploadArea" v-on:click="openFileDialog()">
+			<span class="noselect" style="font-size: 1.15em; color: #ccc;">Drop Foto oder öffne den <span style="color: #a7caf1;">Dateibrowser</span></span>
+		</div>
+		
+		<!-- info about files -->
+		<div v-if="Object.keys(files).length !== 0" class="uploadInfo">
+			<div style="width: 100%; margin-bottom: 1em;">
+				<span style="line-height: 1.4em;">aktuelle Dateien</span>
+			</div>
+			<div v-for="(file, key) in files" :key="key" class="uploadInfoEle">
+				<img :src="(file.status=='')?'img/production1.gif':'img/'+file.status+'.png'" class="statusImage">
+				<img :src="file.previewSrc" class="previewImage">
+				<div style="flex:1;">
+					<div class="progressbar">
+						<div :style="{width:file.uploadPercentage+'%'}"></div>
+					</div>
+					<div style="padding: 1em; font-size: 0.9em;">
+						<span class="dont-break-out">{{file.data.name}}</span>
+						<br>
+						<span v-if="error!=''" style="color: tomato;">{{file.error}}</span>
+					</div>
+				</div>
+				<div style="min-width: 8em;">
+					<div v-on:click="removeFile(key)" class="divDelete noselect">Löschen</div>
+					<a v-if="file.downloadLink!='#'" :href="file.downloadLink" target="_blank" style="text-decoration: none;"><div class="divDelete noselect">Download</div></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Vue -->
+	<script src="https://unpkg.com/vue@3.2.1/dist/vue.global.prod.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
