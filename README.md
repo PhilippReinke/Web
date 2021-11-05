@@ -2,9 +2,9 @@
 As the name suggest the webpage lets you manage files and notes in a fairly basic way. Note that the files are accessible to anyone. However, the notes are saved in a database and are therefore only readable if you are logged in. The webpage requires two tables in a database.
 
 <p float="left">
-  <img src="Screenshots/Login-Upload-Notes-1.png" width="1200px" />
-  <img src="Screenshots/Login-Upload-Notes-2.png" width="1200px" /> 
-  <img src="Screenshots/Login-Upload-Notes-3.png" width="1200px" />
+  <img src="Screenshots/Login-Upload-Notes-1.jpg" width="1200px" />
+  <img src="Screenshots/Login-Upload-Notes-2.jpg" width="1200px" /> 
+  <img src="Screenshots/Login-Upload-Notes-3.jpg" width="1200px" />
 </p>
 
 #### Simple Webpage for Small Businesses (light weight)
@@ -13,10 +13,10 @@ Lets you present your offer, location, contact, faq. You can easily change the o
 The favicon of this webpage has been created with https://realfavicongenerator.net/.
 
 <p float="left">
-  <img src="Screenshots/SmallBusiness-1.png" width="1200px" />
-  <img src="Screenshots/SmallBusiness-2.png" width="1200px" /> 
-  <img src="Screenshots/SmallBusiness-3.png" width="1200px" />
-  <img src="Screenshots/SmallBusiness-4.png" width="1200px" />
-  <img src="Screenshots/SmallBusiness-5.png" width="1200px" />
-  <img src="Screenshots/SmallBusiness-6.png" width="1200px" />
+  <img src="Screenshots/SmallBusiness-1.jpg" width="1200px" />
+  <img src="Screenshots/SmallBusiness-2.jpg" width="1200px" /> 
+  <img src="Screenshots/SmallBusiness-3.jpg" width="1200px" />
+  <img src="Screenshots/SmallBusiness-4.jpg" width="1200px" />
+  <img src="Screenshots/SmallBusiness-5.jpg" width="1200px" />
+  <img src="Screenshots/SmallBusiness-6.jpg" width="1200px" />
 </p>
