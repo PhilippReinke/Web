@@ -26,3 +26,12 @@ The favicon of this webpage has been created with https://realfavicongenerator.n
   <img src="Screenshots/SmallBusiness-5.jpg" width="300px" />
   <img src="Screenshots/SmallBusiness-6.jpg" width="300px" />
 </p>
+
+#### Vue cookies
+Demo: https://philippreinke.de/cookies/
+
+#### Vue Quiz
+Demo: https://philippreinke.de/quiz/
+
+#### Vue Session
+Demo: https://philippreinke.de/session/
