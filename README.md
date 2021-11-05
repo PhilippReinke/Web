@@ -1,3 +1,9 @@
+#### Background Remover
+Click <a href="https://heroku-bgremover.herokuapp.com/">here</a> for demo. It uses Flask and TensorflowLite in the backend and Vue.js for the frontend.
+<p float="left">
+  <img src="Screenshots/BackgroundRemover.jpg" width="300px"/>
+</p>
+
 #### Login-Upload-Notes
 As the name suggest the webpage lets you manage files and notes in a fairly basic way. Note that the files are accessible to anyone. However, the notes are saved in a database and are therefore only readable if you are logged in. The webpage requires two tables in a database.
 
