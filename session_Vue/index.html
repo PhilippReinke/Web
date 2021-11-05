@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body
+		{
+			font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	</style>
+</head>
+<body>
+	<h1>Session Storing</h1>
+	<hr>
+	<div id="app">
+		<!-- -->
+		<h3>Aktuelle Daten</h3>
+		<p><table>
+			<tr>
+				<td>Name</td>
+				<td>{{ session_data.name }}</td>
+			</tr>
+			<tr>
+				<td>Passwort&nbsp;&nbsp;</td>
+				<td>{{ session_data.password }} </td>
+			</tr>
+		</table></p>
+		<button v-on:click="updateSessionData">Session Daten updaten</button>
+		<!-- -->
+		<h3>Neue Session anlegen</h3>
+		<p><input v-model="session_data_new.name" v-on:keyup.enter="new_session" maxlength="15" placeholder="Name"/></p>
+		<p><input v-model="session_data_new.password" maxlength="15" v-on:keyup.enter="new_session" placeholder="Passwort"/></p>
+		<button v-on:click="new_session()">Session anlegen</button>
+		<!-- -->
+		<h3>Session zerstören</h3>
+		<button v-on:click="destroy_session">Session zerstören</button>
+	</div>
+
+	<!-- Vue -->
+	<script src="https://unpkg.com/vue@3.2.1/dist/vue.global.prod.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script>
+		const root = {
+			data()
+			{ 
+				return {
+					session_data: {name:"nicht gesetzt", password:"nicht gesetzt"},
+					session_data_new: {name:"", password:""},
+				};
+			},
+			mounted()
+			{
+				axios.get("php/get.php").then(response => (this.session_data = response.data));
+			},
+			methods:
+			{
+				new_session()
+				{
+					axios.get("php/start_session.php?name="+this.session_data_new.name+"&password="+this.session_data_new.password);
+					this.session_data_new.name = ""; this.session_data_new.password="";
+					this.updateSessionData();
+				},
+				updateSessionData()
+				{
+					axios.get("php/get.php").then(response => (this.session_data = response.data));	
+				},
+				destroy_session()
+				{
+					axios.get("php/destroy_session.php");
+					this.updateSessionData();
+				},
+			},
+		};
+		const app = Vue.createApp(root).mount("#app");
+	</script>
+</body>
+</html>
