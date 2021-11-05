@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<title>Beipsiel 1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		body
+		{
+			font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+		}
+
+		/* Bsp1 */
+		.bsp1
+		{
+			width: 100px; height: 100px; background: red;
+			animation-name: bsp1Keyframe;
+			animation-duration: 4s;
+		}
+		@keyframes bsp1Keyframe
+		{
+			from {background: red;}
+			to {background: yellow;}
+		}
+
+		/* Bsp2 */
+		.bsp2
+		{
+			width: 100px; height: 100px; background: red;
+			animation-name: bsp2Keyframe;
+			animation-duration: 4s;
+		}
+		@keyframes bsp2Keyframe
+		{
+			0%		{background: red;}
+			25%		{background: yellow;}
+			50%		{background: blue;}
+			100%	{background: green;}
+		}
+
+		/* Bsp3 */
+		.bsp3
+		{
+			width: 100px; height: 100px; background: red;
+			position: relative;		/* is positioned relativ to its normal position */
+			animation-name: bsp3Keyframe;
+			animation-duration: 4s;
+		}
+		@keyframes bsp3Keyframe
+		{
+			0%		{background: red; left: 0px; top: 0px;}
+			25%		{background: yellow; left: 200px; top: 0px;}
+			50%		{background: blue; left: 200px; top: 200px;}
+			75%		{background: green; left: 0px; top: 200px;}
+			100%	{background: red; left: 0px; top: 0px;}
+		}
+
+		/* Bsp4 */
+		.bsp4
+		{
+			width: 100px; height: 100px; background: red;
+			position: relative;
+			animation-name: bsp1Keyframe;
+			animation-duration: 4s;
+			animation-delay: 2s; /* negative Werte sind auch erlaubt !! */
+		}
+
+		/* Bsp5 */
+		.bsp5
+		{
+			width: 100px; height: 100px; background: red;
+			position: relative;
+			animation-name: bsp1Keyframe;
+			animation-duration: 4s;
+			animation-iteration-count: 3; /* auch infinite */
+		}
+
+		/* Bsp6 */
+		.bsp6
+		{
+			width: 100px; height: 100px; background: red;
+			position: relative;
+			animation-name: bsp1Keyframe;
+			animation-duration: 4s;
+			animation-fill-mode: forwards; /* or none, backwards, both */
+		}
+		@keyframes bsp6Keyframe
+		{
+			from {top: 0px;}
+			to {top: 200px; background-color: blue;}
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Animationen mit Keyframes</h1>
+	<hr>
+
+	<!-- -->
+	<h2>Bsp1</h2>
+	<div class="bsp1"></div>
+
+	<!-- -->
+	<h2>Bsp2</h2>
+	<div class="bsp2"></div>
+
+	<!-- -->
+	<h2>Bsp3</h2>
+	<div class="bsp3"></div>
+
+	<!-- -->
+	<h2>Bsp4 - Delay</h2>
+	<p>The <code>animation-delay</code> property specifies a delay for the start of an animation.</p>
+	<div class="bsp4"></div>
+
+	<!-- -->
+	<h2>Bsp5 - How Many Times an Animation Should Run</h2>
+	<p>The <code>animation-iteration-count</code> property specifies the number of times an animation should run.</p>
+	<div class="bsp5"></div>
+
+	<!-- -->
+	<h2>Bsp6 - Specify the fill-mode For an Animation</h2>
+	<p>The <code>animation-iteration-count</code> property specifies the number of times an animation should run.</p>
+	<div class="bsp6"></div>
+
+	<!-- -->
+	<h2>More about keyframes</h2>
+	<a target="_blank" href="https://www.w3schools.com/css/css3_animations.asp">For more click here</a><br>
+	<a target="_blank" href="https://dev.to/ljcdev/introduction-to-css-animation-4762">Oder auch hier</a>
+</body>
+
+</html>
