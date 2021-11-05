@@ -1,5 +1,5 @@
 #### Background Remover
-Click <a href="https://heroku-bgremover.herokuapp.com/">here</a> for demo. It uses Flask and TensorflowLite in the backend and Vue.js for the frontend.
+Click <a target="_blank" href="https://heroku-bgremover.herokuapp.com/">here</a> for demo. It uses Flask and TensorflowLite in the backend and Vue.js for the frontend.
 <p float="left">
   <img src="Screenshots/BackgroundRemover.jpg" width="300px"/>
 </p>
