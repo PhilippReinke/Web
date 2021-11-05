@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Upvote!</title>
+	<!-- Metadaten -->
+	<meta charset="utf-8">
+	<meta name="viewport" content='width=device-width, initial-scale=1'>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+</head>
+
+<body>
+	<!-- Heading -->
+	<h1>UpVote!</h1>
+
+	<!-- Upvote list -->
+	<div id="app">
+		<transition-group name="flip">
+		<article v-for="submission in submissions" v-bind:key="submission.id" v-bind:class="{'blue-border' : submission.votes >= 20}">
+			<submission-component v-bind:submission="submission" v-on:upvote_emit="upvote(submission.id)"></submission-component>
+		</article>
+		</transition-group>
+	</div>
+
+	<!-- Vue.js stuff -->
+	<!-- <script src="https://unpkg.com/vue@next"></script> -->
+	<script src="https://unpkg.com/vue@3.2.1/dist/vue.global.prod.js"></script>
+	<script src="seed.js"></script>
+	<script src="main.js"></script>
+</body>
+
+</html>

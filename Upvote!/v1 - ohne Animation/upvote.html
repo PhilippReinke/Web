@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Upvote!</title>
+	<!-- Metadaten -->
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+</head>
+
+<body>
+	<!-- Heading -->
+	<h1>UpVote!</h1>
+
+	<!-- Upvote list -->
+	<div id="app">
+		<article v-for="submission in sortedSubmissions" v-bind:key="submission.id">
+			<!-- Bild des Themas -->
+			<img src="thema.png" height="64" width="64" style="margin-right: 15px;">
+			
+			<!-- Text des Themas -->
+			<div style="flex: 1;">
+				<!-- Titel, Hashtag-Nummer und Votes -->
+				<div style="font-weight: bold;">
+					<a href="#" class="has-text-info">{{submission.title}}</a>&nbsp;
+					<span class="tag"> #{{submission.id}}</span>
+					<span class="noselect" style="float:right; cursor: pointer;" v-on:click="upvote(submission.id)">
+						<i class="fa fa-chevron-up"></i>&nbsp;
+						<strong>{{submission.votes}}</strong>
+					</span>
+				</div>
+
+				<!-- Beschreibung -->
+				<div style="margin-top: 0.5em;">
+					{{submission.description}}
+				</div>
+
+				<!-- Submitted by und Avatar -->
+				<div style="font-size: 0.85em; margin-top: 0.9em;">
+					Submitted by: 
+					<img src="avatar.png" height="24" width="24" style="vertical-align:middle;">
+				</div>
+			</div>
+		</article>
+	</div>
+
+	<!-- Vue.js stuff -->
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="seed.js"></script>
+	<script src="main.js"></script>
+</body>
+
+</html>
